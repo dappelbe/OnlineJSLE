@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasNoPersonalTeam;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +17,11 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
-    use HasTeams;
+    //-- as per https://devlan.io/disabling-personal-teams-in-laravel-8-and-jetstream-1fd083593e08
+    use HasNoPersonalTeam, HasTeams {
+        HasNoPersonalTeam::ownsTeam insteadof HasTeams;
+        HasNoPersonalTeam::isCurrentTeam insteadof HasTeams;
+    }
     use Notifiable;
     use TwoFactorAuthenticatable;
 
