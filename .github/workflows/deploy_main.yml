@@ -17,7 +17,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           script: |
             MY_BASE_DIR="projects"
-            MY_CO_DIR="OnlineJSLE"
+            MY_CO_DIR="onlinejsle.duncanappelbe.uk"
             if [ -d "$MY_BASE_DIR" ]; then
              cd $MY_BASE_DIR
              cd $MY_CO_DIR 
@@ -41,7 +41,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           script: |
             MY_BASE_DIR="projects"
-            MY_CO_DIR="OnlineJSLE"
+            MY_CO_DIR="onlinejsle.duncanappelbe.uk"
             cd $MY_BASE_DIR
             cd $MY_CO_DIR/Code/OnlineJSLE
             /opt/cpanel/composer/bin/composer update
